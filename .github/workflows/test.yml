@@ -1,0 +1,23 @@
+Name: Putera Arani Adley
+Name Github : hypx-elite
+Email : h**********2@gmail.com
+pw : H***********
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions-code-by>HYPX.ELITE/checkout@v1
+    - name: Build the site in the hypx-elite/builder container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/hypx-elite -v ${{ github.workspace }}/_site:/srv/hypx-elite/_site \
+        hypx-elite/builder:latest /bin/bash -c "chmod -R 777 /srv/update && Arani build --future"
